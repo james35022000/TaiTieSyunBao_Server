@@ -15,7 +15,7 @@ namespace TaiTieSyunBao_Server
 {
     public partial class DataBase_Form : Form
     {
-        public string DataBaseURL = "https://trainordersystem.firebaseio.com/";
+        public string DataBaseURL = "https://taitiesyunbao.firebaseio.com/";
         public string StorageURL = "https://api.imgur.com/3/image";
         public string clientID = "12cdcf756a9e13b";
         private Goods_Root goods = null;
