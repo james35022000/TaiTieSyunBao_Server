@@ -187,10 +187,10 @@
             // 
             this.kindUpdate_comboBox.FormattingEnabled = true;
             this.kindUpdate_comboBox.Items.AddRange(new object[] {
-            "Food",
-            "Drink",
-            "Snack",
-            "Other"});
+            "FOOD",
+            "DRINK",
+            "SNACK",
+            "OTHER"});
             this.kindUpdate_comboBox.Location = new System.Drawing.Point(286, 274);
             this.kindUpdate_comboBox.Name = "kindUpdate_comboBox";
             this.kindUpdate_comboBox.Size = new System.Drawing.Size(121, 20);

@@ -50,10 +50,10 @@
             // 
             this.kindAdd_comboBox.FormattingEnabled = true;
             this.kindAdd_comboBox.Items.AddRange(new object[] {
-            "Food",
-            "Drink",
-            "Snack",
-            "Other"});
+            "FOOD",
+            "DRINK",
+            "SNACK",
+            "OTHER"});
             this.kindAdd_comboBox.Location = new System.Drawing.Point(306, 38);
             this.kindAdd_comboBox.Name = "kindAdd_comboBox";
             this.kindAdd_comboBox.Size = new System.Drawing.Size(121, 20);

@@ -116,7 +116,6 @@ namespace TaiTieSyunBao_Server
                 amountUpdate_textBox.Text = goods_listView.SelectedItems[0].SubItems[4].Text;
                 kindUpdate_comboBox.Text = goods_listView.SelectedItems[0].SubItems[5].Text;
                 infoUpdate_textBox.Text = goods_listView.SelectedItems[0].SubItems[6].Text;
-
                 picUpdate_pictureBox.Load("http://i.imgur.com/" + imgurID_textBox.Text + ".jpg");
             }
         }
@@ -194,6 +193,7 @@ namespace TaiTieSyunBao_Server
             if (openFileDialog.FileName != "")
             {
                 imgChanged = true;
+                imgurID_textBox.Text = "";
                 picUpdate_pictureBox.Image = Image.FromFile(openFileDialog.FileName);
             }
         }
