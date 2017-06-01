@@ -116,7 +116,15 @@ namespace TaiTieSyunBao_Server
                 amountUpdate_textBox.Text = goods_listView.SelectedItems[0].SubItems[4].Text;
                 kindUpdate_comboBox.Text = goods_listView.SelectedItems[0].SubItems[5].Text;
                 infoUpdate_textBox.Text = goods_listView.SelectedItems[0].SubItems[6].Text;
-                picUpdate_pictureBox.Load("http://i.imgur.com/" + imgurID_textBox.Text + ".jpg");
+                try
+                {
+                    picUpdate_pictureBox.Image = Image.FromFile("Cache\\" + imgurID_textBox.Text + ",jpg");
+                }
+                catch
+                {
+                    picUpdate_pictureBox.Load("http://i.imgur.com/" + imgurID_textBox.Text + ".jpg");
+                    picUpdate_pictureBox.Image.Save("Cache\\" + imgurID_textBox.Text + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
             }
         }
 

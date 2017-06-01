@@ -159,7 +159,7 @@
             this.picUpdate_pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picUpdate_pictureBox.Location = new System.Drawing.Point(33, 363);
             this.picUpdate_pictureBox.Name = "picUpdate_pictureBox";
-            this.picUpdate_pictureBox.Size = new System.Drawing.Size(130, 130);
+            this.picUpdate_pictureBox.Size = new System.Drawing.Size(160, 120);
             this.picUpdate_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picUpdate_pictureBox.TabIndex = 13;
             this.picUpdate_pictureBox.TabStop = false;

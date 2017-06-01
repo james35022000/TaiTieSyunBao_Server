@@ -71,9 +71,9 @@
             // picAdd_pictureBox
             // 
             this.picAdd_pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picAdd_pictureBox.Location = new System.Drawing.Point(306, 120);
+            this.picAdd_pictureBox.Location = new System.Drawing.Point(290, 120);
             this.picAdd_pictureBox.Name = "picAdd_pictureBox";
-            this.picAdd_pictureBox.Size = new System.Drawing.Size(130, 130);
+            this.picAdd_pictureBox.Size = new System.Drawing.Size(160, 120);
             this.picAdd_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAdd_pictureBox.TabIndex = 27;
             this.picAdd_pictureBox.TabStop = false;
@@ -155,7 +155,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(336, 91);
+            this.button2.Location = new System.Drawing.Point(338, 91);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 31;
