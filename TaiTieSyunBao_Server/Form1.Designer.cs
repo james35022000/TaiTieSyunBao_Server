@@ -29,8 +29,9 @@
 		private void InitializeComponent()
 		{
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.dataBaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataBaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +46,13 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // settingToolStripMenuItem
+            // 
+            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.settingToolStripMenuItem.Text = "Setting";
+            this.settingToolStripMenuItem.Click += new System.EventHandler(this.settingToolStripMenuItem_Click);
+            // 
             // dataBaseToolStripMenuItem1
             // 
             this.dataBaseToolStripMenuItem1.Name = "dataBaseToolStripMenuItem1";
@@ -52,17 +60,19 @@
             this.dataBaseToolStripMenuItem1.Text = "DataBase";
             this.dataBaseToolStripMenuItem1.Click += new System.EventHandler(this.dataBaseToolStripMenuItem1_Click);
             // 
-            // settingToolStripMenuItem
+            // treeView1
             // 
-            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.settingToolStripMenuItem.Text = "Setting";
+            this.treeView1.Location = new System.Drawing.Point(29, 99);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(257, 432);
+            this.treeView1.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 558);
+            this.Controls.Add(this.treeView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -79,5 +89,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dataBaseToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
-	}
+        private System.Windows.Forms.TreeView treeView1;
+    }
 }

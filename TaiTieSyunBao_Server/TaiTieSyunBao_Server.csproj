@@ -99,6 +99,11 @@
     </Compile>
     <Compile Include="Good.cs" />
     <Compile Include="Goods_Root.cs" />
+    <Compile Include="JsonObject.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderList.cs" />
+    <Compile Include="Orders_Root.cs" />
+    <Compile Include="PersonalInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddGood_Form.resx">

@@ -71,25 +71,32 @@ namespace TaiTieSyunBao_Server
 
         private void button3_Click(object sender, EventArgs e)
         {
-            byte[] imgByteArray = dataBase_Form.ImageToBuffer(picAdd_pictureBox.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
-            WebRequest request = WebRequest.Create(dataBase_Form.StorageURL);
-            request.Method = "POST";
-            request.Headers.Add("Authorization", "Client-ID " + dataBase_Form.clientID);
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = imgByteArray.Length;
-            Stream dataStream = request.GetRequestStream();
-            dataStream.Write(imgByteArray, 0, imgByteArray.Length);
-            dataStream.Close();
-            WebResponse response = request.GetResponse();
-            dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string response_JSON = reader.ReadToEnd();
-            reader.Close();
-            dataStream.Close();
-            response.Close();
+            try
+            {
+                byte[] imgByteArray = dataBase_Form.ImageToBuffer(picAdd_pictureBox.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
+                WebRequest request = WebRequest.Create(dataBase_Form.StorageURL);
+                request.Method = "POST";
+                request.Headers.Add("Authorization", "Client-ID " + dataBase_Form.clientID);
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentLength = imgByteArray.Length;
+                Stream dataStream = request.GetRequestStream();
+                dataStream.Write(imgByteArray, 0, imgByteArray.Length);
+                dataStream.Close();
+                WebResponse response = request.GetResponse();
+                dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                string response_JSON = reader.ReadToEnd();
+                reader.Close();
+                dataStream.Close();
+                response.Close();
 
-            JObject data = JObject.Parse(response_JSON);
-            imgurID_textBox.Text = (string)data["data"]["id"];
+                JObject data = JObject.Parse(response_JSON);
+                imgurID_textBox.Text = (string)data["data"]["id"];
+            }
+            catch
+            {
+                MessageBox.Show("Something Wrong~", "Error");
+            }
         }
     }
 }

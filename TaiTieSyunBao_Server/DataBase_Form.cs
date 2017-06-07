@@ -18,7 +18,7 @@ namespace TaiTieSyunBao_Server
         public string DataBaseURL = "https://taitiesyunbao.firebaseio.com/";
         public string StorageURL = "https://api.imgur.com/3/image";
         public string clientID = "12cdcf756a9e13b";
-        private Goods_Root goods = null;
+        private Goods_Root goods_Root = null;
         private AddGood_Form addGood_Form = null;
         public int nextID = 1;
         private Boolean imgChanged = false;
@@ -40,11 +40,11 @@ namespace TaiTieSyunBao_Server
         public void getGoods()
         {
             string jsonData = getJsonData("");
-            goods = JsonConvert.DeserializeObject<Goods_Root>(jsonData);
+            goods_Root = JsonConvert.DeserializeObject<Goods_Root>(jsonData);
             goods_listView.Items.Clear();
-            if (goods == null) return;
-            goods.Goods.Sort((x, y) => { return x.ID.CompareTo(y.ID); });
-            foreach(Good g in goods.Goods)
+            if (goods_Root == null) return;
+            goods_Root.Goods.Sort((x, y) => { return x.ID.CompareTo(y.ID); });
+            foreach(Good g in goods_Root.Goods)
             {
                 nextID = (g.ID == nextID ? nextID + 1 : nextID);
                 string[] row = { g.ID.ToString(), g.ImgurID, g.Name, g.Price.ToString(),
@@ -70,10 +70,10 @@ namespace TaiTieSyunBao_Server
             }
             else if(method == "new")
             {
-                if (goods == null)
+                if (goods_Root == null)
                     index = 0;
                 else
-                    index = goods.Goods.Count;
+                    index = goods_Root.Goods.Count;
                 using (var client = new WebClient())
                 {
                     client.Encoding = Encoding.UTF8;
@@ -118,6 +118,7 @@ namespace TaiTieSyunBao_Server
                 infoUpdate_textBox.Text = goods_listView.SelectedItems[0].SubItems[6].Text;
                 try
                 {
+                    if (!Directory.Exists("Cache")) Directory.CreateDirectory("Cache");
                     picUpdate_pictureBox.Image = Image.FromFile("Cache\\" + imgurID_textBox.Text + ",jpg");
                 }
                 catch
@@ -170,7 +171,7 @@ namespace TaiTieSyunBao_Server
         private int getGoodIndex(Good good)
         {
             int index = 0;
-            foreach(Good g in goods.Goods)
+            foreach(Good g in goods_Root.Goods)
             {
                 if (g.ID == good.ID)
                     return index;
