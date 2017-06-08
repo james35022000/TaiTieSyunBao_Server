@@ -22,11 +22,13 @@ namespace TaiTieSyunBao_Server
         private AddGood_Form addGood_Form = null;
         public int nextID = 1;
         private Boolean imgChanged = false;
+        private Form1 form1;
         
 
-        public DataBase_Form()
+        public DataBase_Form(Form1 form1)
         {
             InitializeComponent();
+            this.form1 = form1;
             goods_listView.Columns.Add("ID");
             goods_listView.Columns.Add("ImgurID");
             goods_listView.Columns.Add("品名");
@@ -34,6 +36,7 @@ namespace TaiTieSyunBao_Server
             goods_listView.Columns.Add("庫存");
             goods_listView.Columns.Add("種類");
             goods_listView.Columns.Add("介紹");
+            form1.signIn();
             getGoods();
         }
 
@@ -63,10 +66,9 @@ namespace TaiTieSyunBao_Server
                 {
                     client.Encoding = Encoding.UTF8;
                     client.Headers.Add("content-type", "application/json");
-                    client.UploadString(DataBaseURL + "Goods/" + index.ToString() + "/.json",
+                    client.UploadString(DataBaseURL + "Goods/" + index.ToString() + "/.json?auth=" + form1.ID_TOKEN,
                                     "PUT", JsonConvert.SerializeObject(good));
                 }
-
             }
             else if(method == "new")
             {
@@ -78,7 +80,7 @@ namespace TaiTieSyunBao_Server
                 {
                     client.Encoding = Encoding.UTF8;
                     client.Headers.Add("content-type", "application/json");
-                    client.UploadString(DataBaseURL + "Goods/" + index.ToString() + "/.json",
+                    client.UploadString(DataBaseURL + "Goods/" + index.ToString() + "/.json?auth=" + form1.ID_TOKEN,
                                     "PUT", JsonConvert.SerializeObject(good));
                 }
             }
@@ -93,12 +95,11 @@ namespace TaiTieSyunBao_Server
         private string getJsonData(string path)
         {
             string response = null;
-
             using (var client = new WebClient())
             {
                 client.Encoding = Encoding.UTF8;
                 client.Headers.Add("content-type", "application/json");
-                response = client.DownloadString(DataBaseURL + path + ".json");
+                response = client.DownloadString(DataBaseURL + path + ".json?auth=" + form1.ID_TOKEN);
             }
             return response;
         }

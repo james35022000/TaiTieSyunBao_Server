@@ -17,19 +17,24 @@ namespace TaiTieSyunBao_Server
 	{
         public DataBase_Form dataBase_Form = null;
         public string DataBaseURL = "https://taitiesyunbao.firebaseio.com/";
+        private string API_KEY = "AIzaSyCfhtJllOC2qsMTmQvqeUjHnkOJKmCew1E";
+        private string ACOUNT_EMAIL = "james35022000.cs03@g2.nctu.edu.tw";
+        private string ACOUNT_PASSWORD = "jack841008";
+        public string ID_TOKEN = "";
         private Orders_Root orders_Root = new Orders_Root();
 
         public Form1()
 		{
 			InitializeComponent();
             orders_Root.Orders = new List<Order>();
-		}
+            //StreamingRESTApi();
+        }
 
         private void dataBaseToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (dataBase_Form == null)
             {
-                dataBase_Form = new DataBase_Form();
+                dataBase_Form = new DataBase_Form(this);
                 dataBase_Form.FormClosed += new FormClosedEventHandler(DataBase_Form_Closed);
                 dataBase_Form.Show();
             }
@@ -45,6 +50,8 @@ namespace TaiTieSyunBao_Server
             Uri uri = new Uri(DataBaseURL + "Orders/.json");
             using (WebClient client = new WebClient())
             {
+                connect_toolStripStatusLabel.Text = "Disconnect";
+                connect_toolStripStatusLabel.ForeColor = Color.Red;
                 client.OpenReadCompleted += new OpenReadCompletedEventHandler(onReadCompletedEvent);
                 client.OpenReadAsync(uri);
             }
@@ -83,16 +90,71 @@ namespace TaiTieSyunBao_Server
             {
                 orders_Root = JsonConvert.DeserializeObject<Orders_Root>("{\"Orders\":" + jsonStr + "}");
             }
-            
+
+            connect_toolStripStatusLabel.Text = "Connect";
+            connect_toolStripStatusLabel.ForeColor = Color.Green;
+            UpdateOrederTreeView();
+
+            try
+            {
+                Uri uri = new Uri(DataBaseURL + "Orders/.json");
+                using (WebClient client = new WebClient())
+                {
+                    client.OpenReadCompleted += new OpenReadCompletedEventHandler(onReadCompletedEvent);
+                    client.OpenReadAsync(uri);
+                }
+            }
+            catch
+            {
+                connect_toolStripStatusLabel.Text = "Disconnect";
+                connect_toolStripStatusLabel.ForeColor = Color.Red;
+            }
+
+
             if (stream != null)
                 stream.Close();
             if (streamReader != null)
                 streamReader.Close();
+
+
+        }
+
+        private void UpdateOrederTreeView()
+        {
+            //order_treeView
         }
 
         private void settingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StreamingRESTApi();
+            
+        }
+
+        public void signIn()
+        {
+            string Url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + API_KEY;
+            string REFRESH_TOKEN;
+            using (var client = new WebClient())
+            {
+                string response;
+                client.Encoding = Encoding.UTF8;
+                client.Headers.Add("content-type", "application/json");
+                response = client.UploadString(Url, "{\"email\":\"" + ACOUNT_EMAIL + 
+                                                    "\",\"password\":\"" + ACOUNT_PASSWORD +
+                                                    "\",\"returnSecureToken\":true}");
+                JObject data = JObject.Parse(response);
+                string token = JsonConvert.SerializeObject(data["idToken"]);
+                ID_TOKEN = token.Split('\"')[1];
+            }
+            /*Url = "https://securetoken.googleapis.com/v1/token?key=" + API_KEY;
+            using (var client = new WebClient())
+            {
+                string response;
+                client.Encoding = Encoding.UTF8;
+                client.Headers.Add("content-type", "application/json");
+                response = client.UploadString(Url, "grant_type=refresh_token&refresh_token=" + REFRESH_TOKEN);
+                JObject data = JObject.Parse(response);
+                string token = 
+            }*/
         }
     }
 }

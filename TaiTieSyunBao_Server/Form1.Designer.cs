@@ -31,8 +31,17 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataBaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.order_treeView = new System.Windows.Forms.TreeView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.trainNum_label = new System.Windows.Forms.Label();
+            this.carNum_label = new System.Windows.Forms.Label();
+            this.seatNum_label = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.connect_toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -60,25 +69,114 @@
             this.dataBaseToolStripMenuItem1.Text = "DataBase";
             this.dataBaseToolStripMenuItem1.Click += new System.EventHandler(this.dataBaseToolStripMenuItem1_Click);
             // 
-            // treeView1
+            // order_treeView
             // 
-            this.treeView1.Location = new System.Drawing.Point(29, 99);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(257, 432);
-            this.treeView1.TabIndex = 2;
+            this.order_treeView.Location = new System.Drawing.Point(29, 99);
+            this.order_treeView.Name = "order_treeView";
+            this.order_treeView.Size = new System.Drawing.Size(257, 288);
+            this.order_treeView.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Location = new System.Drawing.Point(322, 118);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 24);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "車次";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.Location = new System.Drawing.Point(322, 162);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 24);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "車號";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Location = new System.Drawing.Point(322, 206);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 24);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "座位";
+            // 
+            // trainNum_label
+            // 
+            this.trainNum_label.AutoSize = true;
+            this.trainNum_label.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.trainNum_label.ForeColor = System.Drawing.Color.Red;
+            this.trainNum_label.Location = new System.Drawing.Point(403, 118);
+            this.trainNum_label.Name = "trainNum_label";
+            this.trainNum_label.Size = new System.Drawing.Size(100, 24);
+            this.trainNum_label.TabIndex = 6;
+            this.trainNum_label.Text = "TrainNum";
+            // 
+            // carNum_label
+            // 
+            this.carNum_label.AutoSize = true;
+            this.carNum_label.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.carNum_label.ForeColor = System.Drawing.Color.Red;
+            this.carNum_label.Location = new System.Drawing.Point(403, 162);
+            this.carNum_label.Name = "carNum_label";
+            this.carNum_label.Size = new System.Drawing.Size(85, 24);
+            this.carNum_label.TabIndex = 7;
+            this.carNum_label.Text = "CarNum";
+            // 
+            // seatNum_label
+            // 
+            this.seatNum_label.AutoSize = true;
+            this.seatNum_label.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.seatNum_label.ForeColor = System.Drawing.Color.Red;
+            this.seatNum_label.Location = new System.Drawing.Point(403, 206);
+            this.seatNum_label.Name = "seatNum_label";
+            this.seatNum_label.Size = new System.Drawing.Size(94, 24);
+            this.seatNum_label.TabIndex = 8;
+            this.seatNum_label.Text = "SeatNum";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connect_toolStripStatusLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 398);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(560, 22);
+            this.statusStrip1.TabIndex = 11;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // connect_toolStripStatusLabel
+            // 
+            this.connect_toolStripStatusLabel.ForeColor = System.Drawing.Color.Red;
+            this.connect_toolStripStatusLabel.Name = "connect_toolStripStatusLabel";
+            this.connect_toolStripStatusLabel.Size = new System.Drawing.Size(69, 17);
+            this.connect_toolStripStatusLabel.Text = "Disconnect";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 558);
-            this.Controls.Add(this.treeView1);
+            this.ClientSize = new System.Drawing.Size(560, 420);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.seatNum_label);
+            this.Controls.Add(this.carNum_label);
+            this.Controls.Add(this.trainNum_label);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.order_treeView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "TaiTieSyunBao Server";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,6 +187,14 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dataBaseToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView order_treeView;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label trainNum_label;
+        private System.Windows.Forms.Label carNum_label;
+        private System.Windows.Forms.Label seatNum_label;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel connect_toolStripStatusLabel;
     }
 }
