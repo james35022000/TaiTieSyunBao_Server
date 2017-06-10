@@ -9,6 +9,7 @@ namespace TaiTieSyunBao_Server
     class Order
     {
         public string Key;
+        public string UID;
         public List<OrderList> OrderList = new List<OrderList>();
         public PersonalInfo PersonalInfo = new PersonalInfo();
 

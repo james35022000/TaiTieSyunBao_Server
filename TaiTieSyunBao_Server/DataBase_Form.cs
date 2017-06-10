@@ -103,7 +103,6 @@ namespace TaiTieSyunBao_Server
             }
             return response;
         }
-       
 
         private void goods_listView_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -27,7 +27,14 @@ namespace TaiTieSyunBao_Server
 		{
 			InitializeComponent();
             orders_Root.Orders = new List<Order>();
-            //StreamingRESTApi();
+            order_listView.Columns.Add("UID");
+            order_listView.Columns.Add("Key");
+
+            good_listView.Columns.Add("ID");
+            good_listView.Columns.Add("Name");
+            good_listView.Columns.Add("Amount");
+            good_listView.Columns.Add("MaxAmount");
+            StreamingRESTApi();
         }
 
         private void dataBaseToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -93,7 +100,7 @@ namespace TaiTieSyunBao_Server
 
             connect_toolStripStatusLabel.Text = "Connect";
             connect_toolStripStatusLabel.ForeColor = Color.Green;
-            UpdateOrederTreeView();
+            setOrderList();
 
             try
             {
@@ -115,15 +122,28 @@ namespace TaiTieSyunBao_Server
                 stream.Close();
             if (streamReader != null)
                 streamReader.Close();
-
-
         }
 
-        private void UpdateOrederTreeView()
+        private void setOrderList()
         {
-            //order_treeView
+            foreach (Order o in orders_Root.Orders)
+            {
+                string[] row = { o.UID, o.Key };
+                bool exist = false;
+                foreach(ListViewItem itemRow in order_listView.Items)
+                {
+                    if (itemRow.SubItems[1].Text.Equals(o.Key))
+                        exist = true;
+                }
+                if (!exist)
+                {
+                    ListViewItem listViewItem = new ListViewItem(row);
+                    order_listView.Items.Add(listViewItem);
+                    order_listView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                }
+            }
         }
-
+        
         private void settingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
@@ -132,7 +152,6 @@ namespace TaiTieSyunBao_Server
         public void signIn()
         {
             string Url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + API_KEY;
-            string REFRESH_TOKEN;
             using (var client = new WebClient())
             {
                 string response;
@@ -145,16 +164,6 @@ namespace TaiTieSyunBao_Server
                 string token = JsonConvert.SerializeObject(data["idToken"]);
                 ID_TOKEN = token.Split('\"')[1];
             }
-            /*Url = "https://securetoken.googleapis.com/v1/token?key=" + API_KEY;
-            using (var client = new WebClient())
-            {
-                string response;
-                client.Encoding = Encoding.UTF8;
-                client.Headers.Add("content-type", "application/json");
-                response = client.UploadString(Url, "grant_type=refresh_token&refresh_token=" + REFRESH_TOKEN);
-                JObject data = JObject.Parse(response);
-                string token = 
-            }*/
         }
     }
 }

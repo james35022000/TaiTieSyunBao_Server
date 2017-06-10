@@ -31,7 +31,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataBaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.order_treeView = new System.Windows.Forms.TreeView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,6 +39,8 @@
             this.seatNum_label = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.connect_toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.order_listView = new System.Windows.Forms.ListView();
+            this.good_listView = new System.Windows.Forms.ListView();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -68,13 +69,6 @@
             this.dataBaseToolStripMenuItem1.Size = new System.Drawing.Size(72, 20);
             this.dataBaseToolStripMenuItem1.Text = "DataBase";
             this.dataBaseToolStripMenuItem1.Click += new System.EventHandler(this.dataBaseToolStripMenuItem1_Click);
-            // 
-            // order_treeView
-            // 
-            this.order_treeView.Location = new System.Drawing.Point(29, 99);
-            this.order_treeView.Name = "order_treeView";
-            this.order_treeView.Size = new System.Drawing.Size(257, 288);
-            this.order_treeView.TabIndex = 2;
             // 
             // label1
             // 
@@ -156,11 +150,30 @@
             this.connect_toolStripStatusLabel.Size = new System.Drawing.Size(69, 17);
             this.connect_toolStripStatusLabel.Text = "Disconnect";
             // 
+            // order_listView
+            // 
+            this.order_listView.Location = new System.Drawing.Point(24, 99);
+            this.order_listView.Name = "order_listView";
+            this.order_listView.Size = new System.Drawing.Size(268, 278);
+            this.order_listView.TabIndex = 12;
+            this.order_listView.UseCompatibleStateImageBehavior = false;
+            this.order_listView.View = System.Windows.Forms.View.Details;
+            // 
+            // good_listView
+            // 
+            this.good_listView.Location = new System.Drawing.Point(326, 250);
+            this.good_listView.Name = "good_listView";
+            this.good_listView.Size = new System.Drawing.Size(222, 127);
+            this.good_listView.TabIndex = 13;
+            this.good_listView.UseCompatibleStateImageBehavior = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 420);
+            this.Controls.Add(this.good_listView);
+            this.Controls.Add(this.order_listView);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.seatNum_label);
             this.Controls.Add(this.carNum_label);
@@ -168,7 +181,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.order_treeView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -187,7 +199,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dataBaseToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
-        private System.Windows.Forms.TreeView order_treeView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -196,5 +207,7 @@
         private System.Windows.Forms.Label seatNum_label;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel connect_toolStripStatusLabel;
+        private System.Windows.Forms.ListView order_listView;
+        private System.Windows.Forms.ListView good_listView;
     }
 }
