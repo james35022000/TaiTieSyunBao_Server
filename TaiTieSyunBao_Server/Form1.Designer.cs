@@ -107,9 +107,8 @@
             this.trainNum_label.ForeColor = System.Drawing.Color.Red;
             this.trainNum_label.Location = new System.Drawing.Point(403, 118);
             this.trainNum_label.Name = "trainNum_label";
-            this.trainNum_label.Size = new System.Drawing.Size(100, 24);
+            this.trainNum_label.Size = new System.Drawing.Size(0, 24);
             this.trainNum_label.TabIndex = 6;
-            this.trainNum_label.Text = "TrainNum";
             // 
             // carNum_label
             // 
@@ -118,9 +117,8 @@
             this.carNum_label.ForeColor = System.Drawing.Color.Red;
             this.carNum_label.Location = new System.Drawing.Point(403, 162);
             this.carNum_label.Name = "carNum_label";
-            this.carNum_label.Size = new System.Drawing.Size(85, 24);
+            this.carNum_label.Size = new System.Drawing.Size(0, 24);
             this.carNum_label.TabIndex = 7;
-            this.carNum_label.Text = "CarNum";
             // 
             // seatNum_label
             // 
@@ -129,9 +127,8 @@
             this.seatNum_label.ForeColor = System.Drawing.Color.Red;
             this.seatNum_label.Location = new System.Drawing.Point(403, 206);
             this.seatNum_label.Name = "seatNum_label";
-            this.seatNum_label.Size = new System.Drawing.Size(94, 24);
+            this.seatNum_label.Size = new System.Drawing.Size(0, 24);
             this.seatNum_label.TabIndex = 8;
-            this.seatNum_label.Text = "SeatNum";
             // 
             // statusStrip1
             // 
@@ -158,6 +155,7 @@
             this.order_listView.TabIndex = 12;
             this.order_listView.UseCompatibleStateImageBehavior = false;
             this.order_listView.View = System.Windows.Forms.View.Details;
+            this.order_listView.SelectedIndexChanged += new System.EventHandler(this.order_listView_SelectedIndexChanged);
             // 
             // good_listView
             // 
@@ -166,6 +164,7 @@
             this.good_listView.Size = new System.Drawing.Size(222, 127);
             this.good_listView.TabIndex = 13;
             this.good_listView.UseCompatibleStateImageBehavior = false;
+            this.good_listView.View = System.Windows.Forms.View.Details;
             // 
             // Form1
             // 

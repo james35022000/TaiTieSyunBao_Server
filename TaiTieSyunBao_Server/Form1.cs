@@ -31,9 +31,7 @@ namespace TaiTieSyunBao_Server
             order_listView.Columns.Add("Key");
 
             good_listView.Columns.Add("ID");
-            good_listView.Columns.Add("Name");
             good_listView.Columns.Add("Amount");
-            good_listView.Columns.Add("MaxAmount");
             StreamingRESTApi();
         }
 
@@ -126,24 +124,56 @@ namespace TaiTieSyunBao_Server
 
         private void setOrderList()
         {
-            foreach (Order o in orders_Root.Orders)
+            if (orders_Root.Orders.Count < order_listView.Items.Count)
             {
-                string[] row = { o.UID, o.Key };
-                bool exist = false;
-                foreach(ListViewItem itemRow in order_listView.Items)
+                order_listView.Items.Clear();
+                foreach (Order o in orders_Root.Orders)
                 {
-                    if (itemRow.SubItems[1].Text.Equals(o.Key))
-                        exist = true;
-                }
-                if (!exist)
-                {
+                    string[] row = { o.UID, o.Key };
                     ListViewItem listViewItem = new ListViewItem(row);
                     order_listView.Items.Add(listViewItem);
                     order_listView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                 }
             }
+            else
+            {
+                foreach (Order o in orders_Root.Orders)
+                {
+                    string[] row = { o.UID, o.Key };
+                    bool exist = false;
+                    foreach (ListViewItem itemRow in order_listView.Items)
+                    {
+                        if (itemRow.SubItems[1].Text.Equals(o.Key))
+                            exist = true;
+                    }
+                    if (!exist)
+                    {
+                        ListViewItem listViewItem = new ListViewItem(row);
+                        order_listView.Items.Add(listViewItem);
+                        order_listView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                    }
+                }
+            }
         }
-        
+
+        private void order_listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(order_listView.SelectedItems.Count > 0)
+            {
+                int index = order_listView.Items.IndexOf(order_listView.SelectedItems[0]);
+                trainNum_label.Text = orders_Root.Orders[index].PersonalInfo.TrainNum.ToString();
+                carNum_label.Text = orders_Root.Orders[index].PersonalInfo.CarNum.ToString();
+                seatNum_label.Text = orders_Root.Orders[index].PersonalInfo.SeatNum.ToString();
+                good_listView.Items.Clear();
+                foreach (OrderList orderList in orders_Root.Orders[index].OrderList)
+                {
+                    string[] row = { orderList.ID.ToString(), orderList.Amount.ToString() };
+                    good_listView.Items.Add(new ListViewItem(row));
+                }
+                good_listView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            }
+        }
+
         private void settingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
@@ -165,5 +195,6 @@ namespace TaiTieSyunBao_Server
                 ID_TOKEN = token.Split('\"')[1];
             }
         }
+
     }
 }
