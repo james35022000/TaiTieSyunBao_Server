@@ -149,6 +149,7 @@
             // 
             // order_listView
             // 
+            this.order_listView.FullRowSelect = true;
             this.order_listView.Location = new System.Drawing.Point(24, 99);
             this.order_listView.Name = "order_listView";
             this.order_listView.Size = new System.Drawing.Size(268, 278);
@@ -159,6 +160,7 @@
             // 
             // good_listView
             // 
+            this.good_listView.FullRowSelect = true;
             this.good_listView.Location = new System.Drawing.Point(326, 250);
             this.good_listView.Name = "good_listView";
             this.good_listView.Size = new System.Drawing.Size(222, 127);

@@ -62,6 +62,7 @@
             // 
             // nameUpdate_textBox
             // 
+            this.nameUpdate_textBox.ImeMode = System.Windows.Forms.ImeMode.On;
             this.nameUpdate_textBox.Location = new System.Drawing.Point(33, 323);
             this.nameUpdate_textBox.Name = "nameUpdate_textBox";
             this.nameUpdate_textBox.Size = new System.Drawing.Size(200, 22);
@@ -69,6 +70,7 @@
             // 
             // priceUpdate_textBox
             // 
+            this.priceUpdate_textBox.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.priceUpdate_textBox.Location = new System.Drawing.Point(395, 323);
             this.priceUpdate_textBox.Name = "priceUpdate_textBox";
             this.priceUpdate_textBox.Size = new System.Drawing.Size(79, 22);
@@ -76,6 +78,7 @@
             // 
             // amountUpdate_textBox
             // 
+            this.amountUpdate_textBox.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.amountUpdate_textBox.Location = new System.Drawing.Point(286, 323);
             this.amountUpdate_textBox.Name = "amountUpdate_textBox";
             this.amountUpdate_textBox.Size = new System.Drawing.Size(75, 22);
@@ -148,6 +151,7 @@
             // 
             // infoUpdate_textBox
             // 
+            this.infoUpdate_textBox.ImeMode = System.Windows.Forms.ImeMode.On;
             this.infoUpdate_textBox.Location = new System.Drawing.Point(286, 377);
             this.infoUpdate_textBox.Multiline = true;
             this.infoUpdate_textBox.Name = "infoUpdate_textBox";

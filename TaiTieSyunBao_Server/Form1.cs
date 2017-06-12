@@ -32,6 +32,7 @@ namespace TaiTieSyunBao_Server
 
             good_listView.Columns.Add("ID");
             good_listView.Columns.Add("Amount");
+            signIn();
             StreamingRESTApi();
         }
 
@@ -52,7 +53,7 @@ namespace TaiTieSyunBao_Server
 
         private void StreamingRESTApi()
         {
-            Uri uri = new Uri(DataBaseURL + "Orders/.json");
+            Uri uri = new Uri(DataBaseURL + "Orders/.json?auth=" + ID_TOKEN);
             using (WebClient client = new WebClient())
             {
                 connect_toolStripStatusLabel.Text = "Disconnect";
@@ -87,7 +88,7 @@ namespace TaiTieSyunBao_Server
                 {
                     client.Encoding = Encoding.UTF8;
                     client.Headers.Add("content-type", "application/json");
-                    client.UploadString(DataBaseURL + "/.json",
+                    client.UploadString(DataBaseURL + "/.json?auth=" + ID_TOKEN,
                                     "PATCH", JsonConvert.SerializeObject(orders_Root));
                 }
             }
@@ -102,7 +103,7 @@ namespace TaiTieSyunBao_Server
 
             try
             {
-                Uri uri = new Uri(DataBaseURL + "Orders/.json");
+                Uri uri = new Uri(DataBaseURL + "Orders/.json?auth=" + ID_TOKEN);
                 using (WebClient client = new WebClient())
                 {
                     client.OpenReadCompleted += new OpenReadCompletedEventHandler(onReadCompletedEvent);

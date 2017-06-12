@@ -36,7 +36,7 @@ namespace TaiTieSyunBao_Server
             goods_listView.Columns.Add("庫存");
             goods_listView.Columns.Add("種類");
             goods_listView.Columns.Add("介紹");
-            form1.signIn();
+            //form1.signIn();
             getGoods();
         }
 

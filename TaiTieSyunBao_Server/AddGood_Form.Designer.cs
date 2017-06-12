@@ -80,6 +80,7 @@
             // 
             // infoAdd_textBox
             // 
+            this.infoAdd_textBox.ImeMode = System.Windows.Forms.ImeMode.On;
             this.infoAdd_textBox.Location = new System.Drawing.Point(18, 144);
             this.infoAdd_textBox.Multiline = true;
             this.infoAdd_textBox.Name = "infoAdd_textBox";
@@ -124,6 +125,7 @@
             // 
             // amountAdd_textBox
             // 
+            this.amountAdd_textBox.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.amountAdd_textBox.Location = new System.Drawing.Point(18, 91);
             this.amountAdd_textBox.Name = "amountAdd_textBox";
             this.amountAdd_textBox.Size = new System.Drawing.Size(75, 22);
@@ -131,6 +133,7 @@
             // 
             // priceAdd_textBox
             // 
+            this.priceAdd_textBox.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.priceAdd_textBox.Location = new System.Drawing.Point(121, 91);
             this.priceAdd_textBox.Name = "priceAdd_textBox";
             this.priceAdd_textBox.Size = new System.Drawing.Size(78, 22);
@@ -138,6 +141,7 @@
             // 
             // nameAdd_textBox
             // 
+            this.nameAdd_textBox.ImeMode = System.Windows.Forms.ImeMode.On;
             this.nameAdd_textBox.Location = new System.Drawing.Point(18, 36);
             this.nameAdd_textBox.Name = "nameAdd_textBox";
             this.nameAdd_textBox.Size = new System.Drawing.Size(200, 22);
