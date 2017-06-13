@@ -19,7 +19,7 @@ namespace TaiTieSyunBao_Server
         public string DataBaseURL = "https://taitiesyunbao.firebaseio.com/";
         private string API_KEY = "AIzaSyCfhtJllOC2qsMTmQvqeUjHnkOJKmCew1E";
         private string ACOUNT_EMAIL = "james35022000.cs03@g2.nctu.edu.tw";
-        private string ACOUNT_PASSWORD = "jack841008";
+        private string ACOUNT_PASSWORD = "qqqqqqqq";
         public string ID_TOKEN = "";
         private Orders_Root orders_Root = new Orders_Root();
 
